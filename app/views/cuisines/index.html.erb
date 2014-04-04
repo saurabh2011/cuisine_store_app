@@ -1,0 +1,30 @@
+<h1 style="text-align:center">Listing cuisines</h1>
+
+<br />
+<br />
+
+<table border="1px" style="width:90%;border-spacing:0px" align="center">
+  <tr>
+    <th style="width:8%">Name</th>
+    <th style="width:8%">Category</th>
+    <th style="width:26%">Ingredients</th>
+    <th style="width:50%">Steps to prepare</th>
+    <th style="width:8%">Actions</th>
+  </tr>
+
+<% @cuisines.each do |cuisine| %>
+  <tr>
+    <td style="width:8%;text-align:center"><%= cuisine.name %></td>
+    <td style="width:8%;text-align:center"><%= cuisine.category %></td>
+    <td style="width:26%;text-align:left"><%= cuisine.ingredients %></td>
+    <td style="width:50%;text-align:left"><%= cuisine.steps_to_prepare %></td>
+    <td style="width:8%;text-align:center"><%= link_to 'Show', cuisine %>
+    <%= link_to 'Edit', edit_cuisine_path(cuisine) %>
+    <%= link_to 'Destroy', cuisine, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cuisine', new_cuisine_path %>
